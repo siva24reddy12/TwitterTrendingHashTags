@@ -1,6 +1,6 @@
 const express = require('express');
 const trendingService = require('./trendingService');
-const fs = require('fs');
+//const fs = require('fs');
 
 const app = express();
 app.use(express.json());
@@ -20,17 +20,22 @@ app.get('/trending-hashtags', (req, res) => {
     res.json({ hashtags });
 });
 
-// On shutdown, save data
-process.on('SIGINT', () => {
-    trendingService.saveData();
-    process.exit();
-});
+if (require.main === module) {
 
-const PORT = 3000;
-app.listen(PORT, () => {
-    trendingService.loadData(); // load saved state
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+    trendingService.loadData();
+
+    // On shutdown, save data
+    process.on('SIGINT', () => {
+        trendingService.saveData();
+        process.exit();
+    });
+
+    const PORT = 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
+
 
 
 module.exports = app;
