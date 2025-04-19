@@ -115,3 +115,64 @@ Run the built in tests in `jest`:
 ```bash
 npm test
 ```
+
+Includes tests for:
+- `/tweet` POSTING
+- `/tweet-hashtags` GET responses
+
+---
+
+## Run GitHub Actions workflows Manually
+
+This project uses **GitHub Actions** to run the automated tests. The workflow does not run automatically on every push - Instead it can be triggered manually via GitHub:
+
+### Steps to Trigger Manually:
+
+1. Got to GitHub repo.
+2. Click on the **Actions** tab
+3. Select **"Hashtag API Test Suite"**
+4. Click **"Run WorkFlow"** on the top-right corner
+
+✅ This will run the latest test suite in the pipeline.
+
+---
+## Scripts for Load testing
+
+### Windows (My device)
+
+```bash
+double click tweets.bat
+```
+
+### macOS/Linux
+
+```bash
+chmod +x tweets.sh
+./tweets.sh
+```
+
+✅These scripts simulate 50 unique tweets to fill the trending list.
+
+---
+
+
+## Persistence and Durability
+
+- Tweets and hashtag counts are cached in the memory.
+- Data is persisted to a local file `storage.json`
+- on restart the app auto-loads previous state (no data loss)
+
+
+
+## Contributions
+
+If any contributions
+1. Fork the repo
+2. Make changes
+3. Submit the PR. I will review and merge.
+
+---
+
+## Author
+
+**Siva Prasad Reddy Nalamaru**

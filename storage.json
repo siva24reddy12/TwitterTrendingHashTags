@@ -1,4 +1,11 @@
 {
-  "hashtagCount": {},
-  "tweetCache": []
+  "hashtagCount": {
+    "#nodejs": 3,
+    "#java": 1
+  },
+  "tweetCache": [
+    "hello friends welcome to #nodejs class",
+    "hello friends welcome to #nodejs clases",
+    "hello friends welcome to #nodejs  #java clases"
+  ]
 }
