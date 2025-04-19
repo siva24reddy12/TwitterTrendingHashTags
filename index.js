@@ -31,3 +31,6 @@ app.listen(PORT, () => {
     trendingService.loadData(); // load saved state
     console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
+module.exports = app;

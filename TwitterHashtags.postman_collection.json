@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "5d08fc1d-3dab-4bd5-806f-6d6675ba8c6f",
+		"name": "TwitterHashtags",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44240965",
+		"_collection_link": "https://siva-8816713.postman.co/workspace/siva's-Workspace~809c6795-de47-42c5-8b62-615180595511/collection/44240965-5d08fc1d-3dab-4bd5-806f-6d6675ba8c6f?action=share&source=collection_link&creator=44240965"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trending-hashtags",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trending-hashtags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tweet\": \"Hello Friends welcome to #NodeJS class\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tweet",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"tweet"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
