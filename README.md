@@ -1,6 +1,6 @@
 # Twitter Trending Hashtags Service
 
-A light weight, scalable NodeJS REST API that ingests tweet related messages and tracks trending hashtags in real-time. Built for learning, testing, and showcasign basic systems engineering skills with in-memory processing, and automated testing.
+A light weight, scalable NodeJS REST API that ingests tweet related messages and tracks trending hashtags in real-time. Built for learning, testing, and showcasing basic systems engineering skills with in-memory processing, and automated testing.
 
 ---
 
