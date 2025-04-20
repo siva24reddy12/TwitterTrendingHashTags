@@ -35,7 +35,15 @@ if (require.main === module) {
         console.log(`Server running on http://localhost:${PORT}`);
     });
 }
+process.on('SIGINT', () => {
+    trendingService.saveData();
+    process.exit();
+});
 
+process.on('SIGTERM', () => {
+    trendingService.saveData();
+    process.exit();
+});
 
 
 module.exports = app;
