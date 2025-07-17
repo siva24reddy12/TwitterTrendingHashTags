@@ -1,6 +1,16 @@
 # Twitter Trending Hashtags Service
 
-A light weight, scalable NodeJS REST API that ingests tweet related messages and tracks trending hashtags in real-time. Built for learning, testing, and showcasing basic systems engineering skills with in-memory processing, and automated testing.
+A light weight, **scalable** NodeJS REST API that ingests tweet related messages and tracks trending hashtags in real-time. Built for learning, testing, and showcasing basic systems engineering skills with in-memory processing, clustering, and automated testing.
+
+## 🚀 **NEW: Scaling Features**
+
+This service now includes comprehensive scaling capabilities:
+- **Clustering**: Horizontal scaling with multiple worker processes
+- **Rate Limiting**: DoS protection and load management  
+- **Performance Monitoring**: Health checks and real-time metrics
+- **Load Testing**: Comprehensive test suite for validation
+
+📖 **[Read the full Scaling Documentation](./SCALING.md)**
 
 ---
 
@@ -36,6 +46,7 @@ A light weight, scalable NodeJS REST API that ingests tweet related messages and
 ```
 
 ✅ Duplicate tweets are ignored to prevent reprocessing.
+✅ Rate limited to prevent abuse (100 requests/minute/IP).
 
 ---
 
@@ -59,8 +70,60 @@ A light weight, scalable NodeJS REST API that ingests tweet related messages and
 }
 ```
 
-✅Fast in-memory access
-✅State persisted to disk to survive restarts.
+✅ Fast in-memory access
+✅ State persisted to disk to survive restarts.
+
+---
+
+### GET `/health`
+
+**Description:** Health check endpoint for monitoring service status.
+
+- **Response:**
+```json
+{
+    "status": "healthy",
+    "worker": 1,
+    "uptime": 18.5,
+    "memory": {
+        "rss": "52MB",
+        "heapUsed": "6MB",
+        "heapTotal": "7MB"
+    },
+    "stats": {
+        "totalTweets": 150,
+        "uniqueTweets": 120
+    },
+    "timestamp": "2025-07-16T23:22:52.401Z"
+}
+```
+
+---
+
+### GET `/metrics`
+
+**Description:** Performance metrics for monitoring and scaling decisions.
+
+- **Response:**
+```json
+{
+    "tweets": {
+        "total": 150,
+        "unique": 120,
+        "duplicates": 30
+    },
+    "hashtags": {
+        "unique": 45,
+        "total": 200
+    },
+    "memory": {
+        "rss": 53944320,
+        "heapUsed": 6171464
+    },
+    "uptime": 25.36,
+    "worker": 3
+}
+```
 
 
 ### Postman Collection
@@ -152,6 +215,17 @@ chmod +x tweets.sh
 ```
 
 ✅These scripts simulate 50 unique tweets to fill the trending list.
+
+### **NEW: Scaling Load Test**
+
+Test the new scaling features:
+
+```bash
+chmod +x scaling-test.sh
+./scaling-test.sh
+```
+
+✅ Comprehensive load testing with performance analysis and scaling validation.
 
 ---
 
